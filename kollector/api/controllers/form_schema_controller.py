@@ -1,0 +1,26 @@
+from fastapi import APIRouter
+from kollector.api.controller_implementation.form_schema_controller_implementation import (
+    FormSchemaControllerImplementation,
+)
+from kollector.application.entities.formSchema import FormSchemaCreate
+from kollector.application.repositories.form_schema_repository import (
+    FormSchemaRepository,
+)
+from kollector.application.usecases.form_schema_usecase import FormSchemaUseCase
+
+router = APIRouter()
+
+form_schema_repository = FormSchemaRepository()
+form_schema_usecase = FormSchemaUseCase(form_schema_repository)
+
+
+@router.post("/formSchema")
+async def create_form_schema(schema_request: FormSchemaCreate):
+    return FormSchemaControllerImplementation(form_schema_usecase).create_form_schema(
+        schema_request
+    )
+
+
+@router.get("/formSchemas")
+async def get_form_schemas():
+    return FormSchemaControllerImplementation(form_schema_usecase).get_form_schemas()

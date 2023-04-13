@@ -1,0 +1,28 @@
+text:
+  type: string
+  label: Text
+number:
+  type: number
+  label: Number
+date:
+  type: date
+  label: Date
+time:
+  type: time
+  label: Time
+datetime:
+  type: datetime
+  label: Date & Time
+boolean:
+  type: boolean
+  label: Boolean
+select:
+  anyOf: [text, number, date, time, datetime]
+  label: Select
+rating:
+  type: rating
+  label: Rating
+  anyOf: [text, number, date, time, datetime]
+uuid:
+  type: uuid
+  label: UUID
