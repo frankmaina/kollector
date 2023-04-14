@@ -3,6 +3,10 @@ import uuid
 
 
 def get_field_definitions():
+    """Get field definitions
+
+    returns: list[dict]
+    """
     return [
         {"type": "string", "label": "Text", "python_type": str},
         {"type": "number", "label": "Number", "python_type": (int, float)},
