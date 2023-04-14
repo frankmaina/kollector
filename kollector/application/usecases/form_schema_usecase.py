@@ -1,10 +1,13 @@
+from kollector.application.entities.formSchema.form_schema import FormSchema
+from kollector.application.entities.formSchema.form_schema_request import (
+    FormSchemaRequest,
+)
 from kollector.application.interfaces.repositories.form_schema_repository_interface import (
     FormSchemaRepositoryInterface,
 )
 from kollector.application.interfaces.usecases.form_schema_usecase_interface import (
     FormSchemaUseCaseInterface,
 )
-from kollector.application.entities.formSchema import FormSchema, FormSchemaCreate
 
 
 class FormSchemaUseCase(FormSchemaUseCaseInterface):
@@ -18,7 +21,7 @@ class FormSchemaUseCase(FormSchemaUseCaseInterface):
         form_schemas = self.form_schema_repository.get_form_schemas()
         return form_schemas
 
-    def create_form_schema(self, form_schema: FormSchemaCreate) -> FormSchema:
+    def create_form_schema(self, form_schema: FormSchemaRequest) -> FormSchema:
         form_schema = self.form_schema_repository.create_form_schema(form_schema)
         return form_schema
 
