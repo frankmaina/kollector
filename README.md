@@ -3,7 +3,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/frankmaina/kollector">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://raw.githubusercontent.com/frankmaina/kollector/dev/static/logo/main.png" alt="Kollector" width="200" height="300">
   </a>
 
 
