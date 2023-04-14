@@ -67,7 +67,7 @@ The platform provides users with the capability to define a comprehensive form s
 ### Built With
 
 * [![FastAPI][Fastapi.tiangolo.com/]][https://fastapi.tiangolo.com/]
-* [![Python][Python.org]][https://www.python.org/]
+* [![Python][Python.com]][Python-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
