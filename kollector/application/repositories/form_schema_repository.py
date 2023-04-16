@@ -7,6 +7,7 @@ from kollector.application.interfaces.repositories.form_schema_repository_interf
     FormSchemaRepositoryInterface,
 )
 from kollector.infrastructure.database import get_schema_collection
+from kollector.infrastructure.exceptions.not_found_exception import NotFoundException
 from kollector.infrastructure.util.formatters import labelize_string
 from bson.objectid import ObjectId
 
@@ -23,6 +24,8 @@ class FormSchemaRepository(FormSchemaRepositoryInterface):
 
     def get_form_schema(self, form_id: str) -> FormSchema:
         schema = self._get_schema_collection().find_one({"_id": ObjectId(form_id)})
+        if schema is None:
+            raise NotFoundException(f"The form schema with id {form_id} was not found")
         return self._form_schema_repository_object_to_entity(schema)
 
     def get_form_schemas(self) -> list[FormSchema]:
@@ -38,10 +41,9 @@ class FormSchemaRepository(FormSchemaRepositoryInterface):
         create_request = self._form_schema_request_to_repository_object(
             form_schema.dict()
         )
-        schema = self._get_schema_collection().find_one(
-            {"_id": self._schema_collection.insert_one(create_request).inserted_id}
+        return self.get_form_schema(
+            self._schema_collection.insert_one(create_request).inserted_id
         )
-        return self._form_schema_repository_object_to_entity(schema)
 
     def update_form_schema(self, form_schema: FormSchema) -> FormSchema:
         pass

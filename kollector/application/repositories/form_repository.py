@@ -8,6 +8,7 @@ from kollector.application.repositories.form_schema_repository import (
     FormSchemaRepository,
 )
 from kollector.infrastructure.database import get_schema_collection, get_form_collection
+from kollector.infrastructure.exceptions.validation_exception import ValidationException
 
 
 class FormRepository(FormRepositoryInterface):
@@ -24,7 +25,7 @@ class FormRepository(FormRepositoryInterface):
     def _validate_form_schema(self, form_schema: FormSchema, form_data: dict):
         for field in form_schema.fields:
             if field.required and field.field_label not in form_data:
-                raise ValueError(f"Field {field.field_label} is required")
+                raise ValidationException(f"Field {field.field_label} is required")
 
     def _clean_form_data(self, form_schema: FormSchema, form_data: dict):
         form_copy = copy.deepcopy(form_data)

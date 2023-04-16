@@ -5,6 +5,7 @@ from kollector.api.controller_implementation.form_controller_implementation impo
 )
 from kollector.application.repositories.form_repository import FormRepository
 from kollector.application.usecases.form_usecase import FormUseCase
+from kollector.infrastructure.exceptions.not_found_exception import NotFoundException
 
 router = APIRouter(prefix="/api/v1/form")
 
