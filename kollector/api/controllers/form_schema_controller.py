@@ -11,19 +11,19 @@ from kollector.application.repositories.form_schema_repository import (
 )
 from kollector.application.usecases.form_schema_usecase import FormSchemaUseCase
 
-router = APIRouter()
+router = APIRouter(prefix="/api/v1/formSchema")
 
 form_schema_repository = FormSchemaRepository()
 form_schema_usecase = FormSchemaUseCase(form_schema_repository)
 
 
-@router.post("/formSchema")
+@router.post("/")
 async def create_form_schema(schema_request: FormSchemaRequest):
     return FormSchemaControllerImplementation(form_schema_usecase).create_form_schema(
         schema_request
     )
 
 
-@router.get("/formSchemas")
+@router.get("/")
 async def get_form_schemas():
     return FormSchemaControllerImplementation(form_schema_usecase).get_form_schemas()
