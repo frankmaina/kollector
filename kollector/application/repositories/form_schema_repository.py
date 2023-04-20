@@ -41,8 +41,7 @@ class FormSchemaRepository(FormSchemaRepositoryInterface):
             form_schema.dict()
         )
         return self.get_form_schema(
-            self._get_schema_collection().insert_one(
-                create_request).inserted_id
+            self._get_schema_collection().insert_one(create_request).inserted_id
         )
 
     def update_form_schema(self, form_schema: FormSchema) -> FormSchema:

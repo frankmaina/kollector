@@ -17,13 +17,13 @@ form_schema_repository = FormSchemaRepository()
 form_schema_usecase = FormSchemaUseCase(form_schema_repository)
 
 
-@router.post("/")
+@router.post("/", status_code=201)
 async def create_form_schema(schema_request: FormSchemaRequest):
     return FormSchemaControllerImplementation(form_schema_usecase).create_form_schema(
         schema_request
     )
 
 
-@router.get("/")
+@router.get("/", status_code=200)
 async def get_form_schemas():
     return FormSchemaControllerImplementation(form_schema_usecase).get_form_schemas()
