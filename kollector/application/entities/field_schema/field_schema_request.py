@@ -5,5 +5,3 @@ class FieldSchemaRequest(FieldSchemaBase):
     """
     FieldSchemaRequest entity
     """
-
-    pass

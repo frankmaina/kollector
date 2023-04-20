@@ -7,5 +7,5 @@ class FormRepositoryInterface(ABC):
         pass
 
     @abstractmethod
-    def get_forms(self, schema_id: str = None):
+    def get_forms(self, form_schema_id: str = None):
         pass
