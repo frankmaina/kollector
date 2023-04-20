@@ -1,9 +1,7 @@
-from kollector.application.interfaces.repositories.field_repository_interface import (
+from kollector.interfaces.repositories.field_repository_interface import (
     FieldRepositoryInterface,
 )
-from kollector.application.interfaces.usecases.field_usecase_interface import (
-    FieldUseCaseInterface,
-)
+from kollector.interfaces.usecases.field_usecase_interface import FieldUseCaseInterface
 
 
 class FieldUseCase(FieldUseCaseInterface):

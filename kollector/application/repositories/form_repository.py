@@ -1,17 +1,25 @@
 import copy
 
 from kollector.application.entities.formSchema.form_schema import FormSchema
-from kollector.application.interfaces.repositories.form_repository_interface import (
+from kollector.interfaces.repositories.form_repository_interface import (
     FormRepositoryInterface,
 )
 from kollector.application.repositories.form_schema_repository import (
     FormSchemaRepository,
 )
-from kollector.infrastructure.database import get_schema_collection, get_form_collection
+from kollector.infrastructure.database import get_form_collection
 from kollector.infrastructure.exceptions.validation_exception import ValidationException
 
 
 class FormRepository(FormRepositoryInterface):
+    def get_forms(self, form_schema_id: str = None):
+        filter_kwargs = {}
+        if form_schema_id:
+            filter_kwargs["schema_id"] = form_schema_id
+        print(form_schema_id, filter_kwargs, "sadasdasdasdasd@@@@@@@@@@")
+        forms_response = self._get_form_collection().find(filter_kwargs)
+        return [self._form_dto_to_form_entity(form) for form in forms_response]
+
     def __init__(self):
         self._schema_collection = None
         self._form_collection = None
@@ -48,6 +56,13 @@ class FormRepository(FormRepositoryInterface):
         submitted_form = self._get_form_collection().find_one(
             {"_id": result.inserted_id}
         )
+
         del submitted_form["_id"]
         submitted_form["id"] = str(result.inserted_id)
         return submitted_form
+
+    @staticmethod
+    def _form_dto_to_form_entity(form_dto: dict):
+        form_id = form_dto.pop("_id")
+        form_dto["id"] = str(form_id)
+        return form_dto

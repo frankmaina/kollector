@@ -3,7 +3,7 @@ from kollector.application.entities.formSchema.form_schema import FormSchema
 from kollector.application.entities.formSchema.form_schema_request import (
     FormSchemaRequest,
 )
-from kollector.application.interfaces.repositories.form_schema_repository_interface import (
+from kollector.interfaces.repositories.form_schema_repository_interface import (
     FormSchemaRepositoryInterface,
 )
 from kollector.infrastructure.database import get_schema_collection
@@ -19,7 +19,6 @@ class FormSchemaRepository(FormSchemaRepositoryInterface):
     def _get_schema_collection(self):
         if self._schema_collection is None:
             self._schema_collection = get_schema_collection()
-
         return self._schema_collection
 
     def get_form_schema(self, form_id: str) -> FormSchema:
@@ -42,7 +41,8 @@ class FormSchemaRepository(FormSchemaRepositoryInterface):
             form_schema.dict()
         )
         return self.get_form_schema(
-            self._schema_collection.insert_one(create_request).inserted_id
+            self._get_schema_collection().insert_one(
+                create_request).inserted_id
         )
 
     def update_form_schema(self, form_schema: FormSchema) -> FormSchema:

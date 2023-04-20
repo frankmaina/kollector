@@ -2,10 +2,10 @@ from kollector.application.entities.formSchema.form_schema import FormSchema
 from kollector.application.entities.formSchema.form_schema_request import (
     FormSchemaRequest,
 )
-from kollector.application.interfaces.repositories.form_schema_repository_interface import (
+from kollector.interfaces.repositories.form_schema_repository_interface import (
     FormSchemaRepositoryInterface,
 )
-from kollector.application.interfaces.usecases.form_schema_usecase_interface import (
+from kollector.interfaces.usecases.form_schema_usecase_interface import (
     FormSchemaUseCaseInterface,
 )
 

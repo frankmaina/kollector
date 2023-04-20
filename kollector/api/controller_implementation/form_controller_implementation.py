@@ -1,7 +1,7 @@
 from kollector.api.controller_implementation.base_controller_implementation import (
     BaseControllerImplementation,
 )
-from kollector.application.interfaces.usecases.form_usecase_interface import (
+from kollector.interfaces.usecases.form_usecase_interface import (
     FormUseCaseInterface,
 )
 
@@ -12,3 +12,7 @@ class FormControllerImplementation(BaseControllerImplementation):
 
     def submit_form(self, form_data: dict):
         return self.form_use_case_interface.submit_form(form_data)
+
+    def get_forms(self, form_schema_id: str = None):
+        print(" @@@@@ controller form schema", form_schema_id)
+        return self.form_use_case_interface.get_forms(form_schema_id)

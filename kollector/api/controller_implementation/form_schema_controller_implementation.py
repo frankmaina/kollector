@@ -4,7 +4,7 @@ from kollector.api.controller_implementation.base_controller_implementation impo
 from kollector.application.entities.formSchema.form_schema_request import (
     FormSchemaRequest,
 )
-from kollector.application.interfaces.usecases.form_schema_usecase_interface import (
+from kollector.interfaces.usecases.form_schema_usecase_interface import (
     FormSchemaUseCaseInterface,
 )
 
