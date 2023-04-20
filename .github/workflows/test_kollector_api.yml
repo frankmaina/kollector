@@ -38,6 +38,6 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    - name: Test with pytest
+    - name: Run Checks With Pylint
       run: |
-        pylint --rcfile=.pylint/pylintrc kollector
+        pylint --rcfile=.pylint/pylintrc --fail-under=10 kollector
