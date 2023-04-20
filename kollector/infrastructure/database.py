@@ -28,3 +28,10 @@ def get_schema_collection():
     if _db is None:
         _db = connect_to_mongodb()
     return _db["formSchemas"]
+
+
+def get_form_collection():
+    global _db
+    if _db is None:
+        _db = connect_to_mongodb()
+    return _db["forms"]
