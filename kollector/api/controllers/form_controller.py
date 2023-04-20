@@ -15,3 +15,8 @@ form_usecase = FormUseCase(form_repository)
 @router.post("/")
 async def submit_form(form_data: dict):
     return FormControllerImplementation(form_usecase).submit_form(form_data)
+
+
+@router.get("/")
+async def get_forms(form_schema_id: str = None):
+    return FormControllerImplementation(form_usecase).get_forms(form_schema_id)

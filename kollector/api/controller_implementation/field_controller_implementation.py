@@ -1,9 +1,7 @@
 from kollector.api.controller_implementation.base_controller_implementation import (
     BaseControllerImplementation,
 )
-from kollector.application.interfaces.usecases.field_usecase_interface import (
-    FieldUseCaseInterface,
-)
+from kollector.interfaces.usecases.field_usecase_interface import FieldUseCaseInterface
 
 
 class FieldControllerImplementation(BaseControllerImplementation):

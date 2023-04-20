@@ -1,8 +1,9 @@
 from definitions.query import get_field_definitions
-from kollector.application.interfaces.repositories.field_repository_interface import (
+
+from kollector.infrastructure.util.formatters import strip_python_types_from_definitions
+from kollector.interfaces.repositories.field_repository_interface import (
     FieldRepositoryInterface,
 )
-from kollector.infrastructure.util.formatters import strip_python_types_from_definitions
 
 
 class FieldRepository(FieldRepositoryInterface):
