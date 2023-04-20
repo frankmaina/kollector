@@ -14,5 +14,4 @@ class FormControllerImplementation(BaseControllerImplementation):
         return self.form_use_case_interface.submit_form(form_data)
 
     def get_forms(self, form_schema_id: str = None):
-        print(" @@@@@ controller form schema", form_schema_id)
         return self.form_use_case_interface.get_forms(form_schema_id)

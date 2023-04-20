@@ -16,7 +16,6 @@ class FormRepository(FormRepositoryInterface):
         filter_kwargs = {}
         if form_schema_id:
             filter_kwargs["schema_id"] = form_schema_id
-        print(form_schema_id, filter_kwargs, "sadasdasdasdasd@@@@@@@@@@")
         forms_response = self._get_form_collection().find(filter_kwargs)
         return [self._form_dto_to_form_entity(form) for form in forms_response]
 
