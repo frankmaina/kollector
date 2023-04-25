@@ -24,7 +24,12 @@ jobs:
         pip install -r requirements.txt
     - name: Test with pytest
       run: |
-        pytest
+        pytest --cov
+      env:
+        COVERAGE_MINIMUM: 75 # increase this as we mature
+    - name: Check Code Coverage
+      run: |
+        coverage report --fail-under=$COVERAGE_MINIMUM
   checks:
     runs-on: ubuntu-latest
     needs: tests
