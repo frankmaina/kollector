@@ -66,7 +66,7 @@ The platform provides users with the capability to define a comprehensive form s
 <!-- GETTING STARTED -->
 ## Getting Started
 
-The quickest way to get started (right now) is to set up a python environment locally and couple the installation with a couple the installation with a local or remote MongoDB installation, or alternatively, use a running Docker container with MongoDB.
+The quickest way to get started (right now) is to set up a python environment locally and couple the installation with a local or remote MongoDB installation, or alternatively, use a running Docker container with MongoDB.
 
 ### Installation
 
