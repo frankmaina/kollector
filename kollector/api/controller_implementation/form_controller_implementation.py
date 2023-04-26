@@ -6,7 +6,7 @@ from kollector.interfaces.usecases.form_usecase_interface import (
 )
 
 
-class FormControllerImplementation(BaseControllerImplementation):
+class EntryControllerImplementation(BaseControllerImplementation):
     def __init__(self, form_use_case_interface: FormUseCaseInterface):
         self.form_use_case_interface = form_use_case_interface
 

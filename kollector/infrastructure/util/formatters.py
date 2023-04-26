@@ -3,7 +3,7 @@ import re
 
 def labelize_string(s):
     """
-    Converts a string to a snake case or "labelized" form.
+    Converts a string to a snake case or "labelized" entry.
     """
     s = s.strip().lower()
     s = re.sub(r"\W+", "_", s)

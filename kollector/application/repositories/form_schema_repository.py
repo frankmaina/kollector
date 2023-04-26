@@ -24,7 +24,7 @@ class FormSchemaRepository(FormSchemaRepositoryInterface):
     def get_form_schema(self, form_id: str) -> FormSchema:
         schema = self._get_schema_collection().find_one({"_id": ObjectId(form_id)})
         if schema is None:
-            raise NotFoundException(f"The form schema with id {form_id} was not found")
+            raise NotFoundException(f"The entry schema with id {form_id} was not found")
         return self._form_schema_repository_object_to_entity(schema)
 
     def get_form_schemas(self) -> list[FormSchema]:
@@ -53,7 +53,7 @@ class FormSchemaRepository(FormSchemaRepositoryInterface):
     @staticmethod
     def _form_schema_repository_object_to_entity(form_schema_dto: dict) -> FormSchema:
         """
-        Converts a form schema dto to a form schema entity
+        Converts a entry schema dto to a entry schema entity
         form_schema_dto: dict
         return: FormSchema
         """
@@ -65,7 +65,7 @@ class FormSchemaRepository(FormSchemaRepositoryInterface):
     @staticmethod
     def _form_schema_request_to_repository_object(form_schema: dict) -> dict:
         """
-        Converts a form schema request to a form schema repository object
+        Converts a entry schema request to a entry schema repository object
         form_schema: dict
         return: dict
         """
