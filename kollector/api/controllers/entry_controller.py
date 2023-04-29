@@ -1,22 +1,22 @@
 from fastapi import APIRouter
-
-from kollector.api.controller_implementation.form_controller_implementation import (
+import time
+from kollector.api.controller_implementation.entry_controller_implementation import (
     EntryControllerImplementation,
 )
 from kollector.application.repositories.entry_repository import EntryRepository
-from kollector.application.usecases.form_usecase import FormUseCase
+from kollector.application.usecases.entry_usecase import EntryUseCase
 
 router = APIRouter(prefix="/api/v1/entry")
 
 form_repository = EntryRepository()
-form_usecase = FormUseCase(form_repository)
+entry_usecase = EntryUseCase(form_repository)
 
 
-@router.post("/")
-async def submit_form(form_data: dict):
-    return EntryControllerImplementation(form_usecase).submit_form(form_data)
+@router.post("/", status_code=201)
+async def submit_form_entry(form_data: dict):
+    return EntryControllerImplementation(entry_usecase).submit_form_entry(form_data)
 
 
 @router.get("/")
 async def get_forms(form_schema_id: str = None):
-    return EntryControllerImplementation(form_usecase).get_forms(form_schema_id)
+    return EntryControllerImplementation(entry_usecase).get_form_entries(form_schema_id)

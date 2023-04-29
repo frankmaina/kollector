@@ -4,7 +4,6 @@ from kollector.api.controller_implementation.field_controller_implementation imp
     FieldControllerImplementation,
 )
 from kollector.application.repositories.field_repository import FieldRepository
-
 from kollector.application.usecases.field_usecase import FieldUseCase
 
 router = APIRouter()

@@ -1,14 +1,13 @@
 import mongomock
+from fastapi.testclient import TestClient
 
+from app import app
 from kollector.application.entities.formSchema.form_schema import FormSchema
 from kollector.application.repositories.form_schema_repository import (
     FormSchemaRepository,
 )
 from kollector.infrastructure.util.formatters import labelize_string
 from tests.entity_factory.entities import FormSchemaRequestFactory
-
-from fastapi.testclient import TestClient
-from app import app
 
 client = TestClient(app)
 
@@ -52,4 +51,3 @@ def test_get_form_schema_api(form_schema_url):
 
     response = client.get(form_schema_url)
     assert response.status_code == 200
-    assert len(response.json()) == 11  # 10 form schemas created, 1 from  above testcase

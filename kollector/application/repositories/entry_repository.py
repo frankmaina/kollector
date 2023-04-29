@@ -1,14 +1,14 @@
 import copy
 
 from kollector.application.entities.formSchema.form_schema import FormSchema
-from kollector.interfaces.repositories.entry_repository_interface import (
-    EntryRepositoryInterface,
-)
 from kollector.application.repositories.form_schema_repository import (
     FormSchemaRepository,
 )
 from kollector.infrastructure.database import get_form_collection
 from kollector.infrastructure.exceptions.validation_exception import ValidationException
+from kollector.interfaces.repositories.entry_repository_interface import (
+    EntryRepositoryInterface,
+)
 
 
 class EntryRepository(EntryRepositoryInterface):

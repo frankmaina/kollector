@@ -1,12 +1,10 @@
 from kollector.interfaces.repositories.entry_repository_interface import (
     EntryRepositoryInterface,
 )
-from kollector.interfaces.usecases.form_usecase_interface import (
-    FormUseCaseInterface,
-)
+from kollector.interfaces.usecases.entry_usecase_interface import EntryUseCaseInterface
 
 
-class FormUseCase(FormUseCaseInterface):
+class EntryUseCase(EntryUseCaseInterface):
     def __init__(self, form_repository: EntryRepositoryInterface):
         self.form_repository = form_repository
 
