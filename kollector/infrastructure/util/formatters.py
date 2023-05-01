@@ -1,4 +1,5 @@
 import re
+from datetime import datetime, timezone
 
 
 def labelize_string(s):
@@ -19,3 +20,7 @@ def strip_python_types_from_definitions(constants):
         {k: v for k, v in constant.items() if k != "python_type"}
         for constant in constants
     ]
+
+
+def get_current_utc_time_as_str():
+    return datetime.now(timezone.utc).isoformat()

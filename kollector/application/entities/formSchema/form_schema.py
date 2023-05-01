@@ -11,4 +11,8 @@ class FormSchema(BaseEntityModel):
     """
 
     name: str
+    description: str
+    is_active: bool = True
+    previous_version: str = None
+    version_hash: str = None
     fields: list[FieldSchema]
