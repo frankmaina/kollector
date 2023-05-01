@@ -1,18 +1,18 @@
 import copy
 
 from kollector.application.entities.formSchema.form_schema import FormSchema
-from kollector.interfaces.repositories.form_repository_interface import (
-    FormRepositoryInterface,
-)
 from kollector.application.repositories.form_schema_repository import (
     FormSchemaRepository,
 )
 from kollector.infrastructure.database import get_form_collection
 from kollector.infrastructure.exceptions.validation_exception import ValidationException
+from kollector.interfaces.repositories.entry_repository_interface import (
+    EntryRepositoryInterface,
+)
 
 
-class FormRepository(FormRepositoryInterface):
-    def get_forms(self, form_schema_id: str = None):
+class EntryRepository(EntryRepositoryInterface):
+    def get_form_entries(self, form_schema_id: str = None):
         filter_kwargs = {}
         if form_schema_id:
             filter_kwargs["schema_id"] = form_schema_id
@@ -43,7 +43,7 @@ class FormRepository(FormRepositoryInterface):
                 del form_copy[field]
         return form_copy
 
-    def submit_form(self, form_data) -> dict:
+    def submit_form_entry(self, form_data) -> dict:
         schema = FormSchemaRepository().get_form_schema(form_data.get("schema_id"))
 
         self._validate_form_schema(schema, form_data)
@@ -55,10 +55,7 @@ class FormRepository(FormRepositoryInterface):
         submitted_form = self._get_form_collection().find_one(
             {"_id": result.inserted_id}
         )
-
-        del submitted_form["_id"]
-        submitted_form["id"] = str(result.inserted_id)
-        return submitted_form
+        return self._form_dto_to_form_entity(submitted_form)
 
     @staticmethod
     def _form_dto_to_form_entity(form_dto: dict):

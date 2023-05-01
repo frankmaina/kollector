@@ -11,4 +11,5 @@ class FormSchemaRequest(BaseModel):
     """
 
     name: str
+    description: str
     fields: list[FieldSchemaRequest]

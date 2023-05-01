@@ -63,6 +63,7 @@ max-line-length = 88 # black
 # enable = W1201 # Use %s formatting in logging functions
 # enable = W1301 # Unused key %r in format string dictionary
 # enable = W1501 # "%s" is not a valid mode for open.
+# enable = W0611 # unused-import
 
 # Python 3 Compatibility Linter
 # enable = E1601 # print statement used

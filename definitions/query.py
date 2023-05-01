@@ -14,17 +14,5 @@ def get_field_definitions():
         {"type": "time", "label": "Time", "python_type": datetime.time},
         {"type": "datetime", "label": "Date & Time", "python_type": datetime.datetime},
         {"type": "boolean", "label": "Boolean", "python_type": bool},
-        {
-            "type": "select",
-            "label": "Select",
-            "anyOf": ["string", "number", "date", "time", "datetime"],
-            "python_type": object,
-        },
-        {
-            "type": "rating",
-            "label": "Rating",
-            "anyOf": ["string", "number", "date", "time", "datetime"],
-            "python_type": object,
-        },
-        {"type": "uuid", "label": "UUID", "python_type": uuid.UUID},
     ]
+

@@ -12,6 +12,8 @@ class BaseEntityModel(BaseModel):
     id: str
     created_at: str = None
     updated_at: str = None
+    is_deleted: bool = False
+    deleted_at: str = None
 
     class Config:
         orm_mode = True
