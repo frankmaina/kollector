@@ -54,14 +54,13 @@ class FormSchemaRepository(FormSchemaRepositoryInterface):
     def update_form_schema(self, form_schema: FormSchema) -> FormSchema:
         pass
 
-    def delete_form_schema(self, form_id: str) -> None:
+    def delete_form_schema(self, form_id: str):
         schema = self.get_form_schema(form_id, False)
         schema["is_deleted"] = True
         current_time = get_current_utc_time_as_str()
         schema["updated_at"] = current_time
         schema["deleted_at"] = current_time
         self._get_schema_collection().update_one(schema)
-        return None
 
     @staticmethod
     def _form_schema_repository_object_to_entity(form_schema_dto: dict) -> FormSchema:
