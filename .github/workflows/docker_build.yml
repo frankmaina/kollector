@@ -1,13 +1,8 @@
-name: Release Kollector Image to Docker
+name: Publish Kollector API Image to Docker
 
-#on:
-#  release:
-#    types: [created]
 on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+  release:
+    types: [created]
 
 jobs:
   build-and-publish:
@@ -29,9 +24,9 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
-        name: Build and push
+        name: Build and Push
         uses: docker/build-push-action@v4
         with:
           context: .
           push: true
-          tags: frankandrew/kollector:v0.0.1-ci-test-1
+          tags: frankandrew/kollector:${{ github.event.release.tag_name }}
