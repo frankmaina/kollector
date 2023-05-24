@@ -8,8 +8,8 @@ from kollector.application.entities.formSchema.form_schema_request import (
 from kollector.infrastructure.database import get_schema_collection
 from kollector.infrastructure.exceptions.not_found_exception import NotFoundException
 from kollector.infrastructure.util.formatters import (
-    labelize_string,
     get_current_utc_time_as_str,
+    labelize_string,
 )
 from kollector.interfaces.repositories.form_schema_repository_interface import (
     FormSchemaRepositoryInterface,

@@ -1,5 +1,7 @@
-from fastapi import APIRouter
 import time
+
+from fastapi import APIRouter
+
 from kollector.api.controller_implementation.entry_controller_implementation import (
     EntryControllerImplementation,
 )
